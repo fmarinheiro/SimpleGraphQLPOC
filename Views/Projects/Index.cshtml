@@ -1,0 +1,44 @@
+﻿@using SuperSimpleGraphQLTutorial.ViewModels
+
+@model ProjectList
+
+@{
+    ViewData["Title"] = "Project List";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model =>  model.IdLabel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameLabel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedByLabel)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var project in Model._projects) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => project.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => project.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => project.CreatedBy)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
